@@ -58,21 +58,4 @@ body,
   box-shadow: inset 0px 0px 0px 1px #f00;
 }
 
-.container {
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  color: red;
-  display: flex;
-  flex: 1;
-  min-height: 100%;
-  flex-direction: column;
-}
-.left {
-  background: blue;
-  flex: 1;
-}
-.right {
-  background: green;
-  flex: 1;
-}
 </style>
