@@ -53,9 +53,9 @@ body,
 .col {
   flex: 1 0 auto;
 }
-
+/* 
 * {
   box-shadow: inset 0px 0px 0px 1px #f00;
-}
+} */
 
 </style>
