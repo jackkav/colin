@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "2.6.0",
-    "eslint": "5.15.1",
+    "eslint": "5.16.0",
     "eslint-plugin-vue": "5.2.2",
     "parcel-bundler": "1.12.0",
     "parcel-plugin-eslint": "1.0.7",
