@@ -719,10 +719,10 @@
   resolved "https://registry.npmjs.org/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha512-eqz8c/0kwNi/OEHQfvIuJVLTst3in0e7uTKeuY+WL/zfKn0xVujOTp42bS/vUUokhK5P2BppLd9JXMOMHcgbjA==
 
-"@vue/component-compiler-utils@2.6.0":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-2.6.0.tgz#aa46d2a6f7647440b0b8932434d22f12371e543b"
-  integrity sha512-IHjxt7LsOFYc0DkTncB7OXJL7UzwOLPPQCfEUNyxL2qt+tF12THV+EO33O1G2Uk4feMSWua3iD39Itszx0f0bw==
+"@vue/component-compiler-utils@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-3.0.0.tgz#d16fa26b836c06df5baaeb45f3d80afc47e35634"
+  integrity sha512-am+04/0UX7ektcmvhYmrf84BDVAD8afFOf4asZjN84q8xzxFclbk5x0MtxuKGfp+zjN5WWPJn3fjFAWtDdIGSw==
   dependencies:
     consolidate "^0.15.1"
     hash-sum "^1.0.2"
@@ -2839,9 +2839,9 @@ icss-replace-symbols@1.1.0, icss-replace-symbols@^1.1.0:
   resolved "https://registry.npmjs.org/icss-replace-symbols/-/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
   integrity sha1-Bupvg2ead0njhs/h/oEq5dsiPe0=
 
-idx@^2.5.4:
+idx@2.5.4:
   version "2.5.4"
-  resolved "https://registry.npmjs.org/idx/-/idx-2.5.4.tgz#4ce79359b085e1b75dda7521de894a518093bc42"
+  resolved "https://registry.yarnpkg.com/idx/-/idx-2.5.4.tgz#4ce79359b085e1b75dda7521de894a518093bc42"
   integrity sha512-TMxVRvWR/0LLb1HHVJ5oGtrUNjyHevjLtGAaGnV9/LdLuljfUS1KT6zBWB9XeUaZfloPMenC51MqoJmNnj3DHw==
 
 ieee754@^1.1.4:
