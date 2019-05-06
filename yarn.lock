@@ -2839,10 +2839,10 @@ icss-replace-symbols@1.1.0, icss-replace-symbols@^1.1.0:
   resolved "https://registry.npmjs.org/icss-replace-symbols/-/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
   integrity sha1-Bupvg2ead0njhs/h/oEq5dsiPe0=
 
-idx@^2.5.4:
-  version "2.5.4"
-  resolved "https://registry.npmjs.org/idx/-/idx-2.5.4.tgz#4ce79359b085e1b75dda7521de894a518093bc42"
-  integrity sha512-TMxVRvWR/0LLb1HHVJ5oGtrUNjyHevjLtGAaGnV9/LdLuljfUS1KT6zBWB9XeUaZfloPMenC51MqoJmNnj3DHw==
+idx@2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/idx/-/idx-2.5.6.tgz#1f824595070100ae9ad585c86db08dc74f83a59d"
+  integrity sha512-WFXLF7JgPytbMgelpRY46nHz5tyDcedJ76pLV+RJWdb8h33bxFq4bdZau38DhNSzk5eVniBf1K3jwfK+Lb5nYA==
 
 ieee754@^1.1.4:
   version "1.1.12"
