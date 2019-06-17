@@ -4,7 +4,7 @@
       <div
         v-on:click="d.show = !d.show"
         class="ba ph3 pv3 bg-washed-green black bg-animate hover-bg-dark-green hover-white"
-      >{{d.movieTitle}}</div>
+      >{{d.movieTitle}} [{{d.uploadedAtFromNow}}]</div>
       <transition name="fade">
         <div
           v-if="d.show"
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import fromNow from "moment-from-now";
 import { getPBTagAndMagnetByTopic, setExpiry, isExpired } from "./scrape";
 import { pbParse } from "./parsers";
 import Trailer from "./Trailer.vue";
@@ -41,11 +42,16 @@ export default {
   methods: {
     fetchItems: async function() {
       let t = await getPBTagAndMagnetByTopic(topics.movieId);
-      const movies = t.map(x => ({
-        ...x,
-        ...pbParse(x.fullTag, topics.movies),
-        show: false
-      }));
+      let movies = t
+        .map(x => ({
+          ...x,
+          ...pbParse(x.fullTag, topics.movies),
+          show: false
+        }))
+        .map(x => ({ ...x, uploadedAtFromNow: fromNow(x.uploadedAt) }));
+      movies = movies.sort(
+        (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
+      );
       setExpiry(topics.movies, movies, 2);
       this.items = movies;
     }

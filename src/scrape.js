@@ -3,7 +3,7 @@ import idx from "idx";
 export const getPBTagAndMagnetByTopic = async id => {
   let cors = "https://cors-anywhere.herokuapp.com/";
   let f = await fetch(cors + "thepiratebay.rocks/top/" + id);
-  console.log(f.status);
+  // console.log(f.status);
   if (f.status !== 200) f = await fetch(cors + "pirateproxy.sh/top/" + id);
   if (f.status !== 200) f = await fetch(cors + "thepiratebay.red/top/" + id);
   if (f.status !== 200) f = await fetch(cors + "thepiratebay.org/top/" + id);
@@ -57,7 +57,7 @@ export const isExpired = key => {
   if (!expire || !value) return true;
   const expiryTime = new Date(expire);
   let today = new Date();
-  console.log(key + " has Expired", today > expiryTime);
+  // console.log(key + " has Expired", today > expiryTime);
   return today > expiryTime;
 };
 export const getTrailer = async (name, year) => {
@@ -65,14 +65,14 @@ export const getTrailer = async (name, year) => {
   return getVideo(searchTerm);
 };
 const getVideo = async searchTerm => {
-  console.log("search for this: ", searchTerm);
+  // console.log("search for this: ", searchTerm);
   let cors = "https://cors-anywhere.herokuapp.com/";
   let f = await fetch(
     `${cors}https://www.googleapis.com/youtube/v3/search?key=AIzaSyBjnMTlF9ou968qeDBc6LQpN860jJ0Juj0&q=${searchTerm}&part=snippet`
   );
   let json = await f.json();
-  const items = idx(json, _=>_.items);
-  console.log(json);
+  const items = idx(json, _ => _.items);
+  // console.log(json);
   let first = {};
   if (items.length) first = items[0];
 

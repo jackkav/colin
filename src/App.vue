@@ -23,5 +23,4 @@ body,
   flex: 1; /* no need anymore to deal with height/width */
   flex-direction: column;
 }
-
 </style>
