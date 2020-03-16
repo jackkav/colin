@@ -10,27 +10,6 @@ div
         div Size: {{d.size}}
         .f6.link.dim.br2.ph3.pv2.mb2.dib.white.bg-black(:href="d.magnet") Download
         trailer(:title="d.movieTitle" :year="d.year")
-  //- <div>
-  //-   <div v-for="d in items.filter(x=>x.hd)" :key="d.id">
-  //-     <div
-  //-       v-on:click="d.show = !d.show"
-  //-       class="ba ph3 pv3 bg-washed-green black bg-animate hover-bg-dark-green hover-white"
-  //-     >{{d.movieTitle}} [{{d.uploadedAtFromNow}}]</div>
-  //-     <transition name="fade">
-  //-       <div
-  //-         v-if="d.show"
-  //-         class="ph3 pv3 bg-washed-green black bg-animate hover-bg-dark-green hover-white"
-  //-       >
-  //-         <div>Name: {{d.title}}</div>
-  //-         <div>Position: #{{d.index + 1}}</div>
-  //-         <div>Quality: {{d.quality}}</div>
-  //-         <div>Size: {{d.size}}</div>
-  //-         <a class="f6 link dim br2 ph3 pv2 mb2 dib white bg-black" v-bind:href="d.magnet">Download</a>
-  //-         <trailer :title="d.movieTitle" :year="d.year"/>
-  //-       </div>
-  //-     </transition>
-  //-   </div>
-  //- </div>
 </template>
 
 <script>

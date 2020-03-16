@@ -20,7 +20,7 @@ html {
 body,
 .flex-body {
   display: flex;
-  flex: 1; /* no need anymore to deal with height/width */
+  flex: 1;
   flex-direction: column;
 }
 </style>

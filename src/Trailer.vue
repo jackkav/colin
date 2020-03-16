@@ -1,31 +1,36 @@
-<template>
-  <div>
-    <div v-if="loading">Loading...</div>
-    <a v-else target="blank" v-bind:href="video.watch">
-      <img v-bind:src="video.icon" v-bind:title="video.title" alt="yt" width="240" height="180">
-    </a>
-  </div>
+<template lang="pug">
+  div
+    div(v-if="loading") Loading...
+    a(v-else target="blank" :href="video.watch")
+      img(
+        :src="video.icon"
+        :title="video.title"
+        alt=""
+        width="240"
+        height="180"
+      )
 </template>
 
 <script>
 import { getTrailer } from "./scrape";
-
+import { reactive, onMounted, toRefs } from "@vue/composition-api";
 export default {
+  name: "Trailer",
   props: ["title", "year"],
-  mounted() {
-    this.fetchItems();
-  },
-  methods: {
-    fetchItems: async function() {
-      this.loading = true;
-      this.video = await getTrailer(this.title, this.year);
-      this.loading = false;
-    }
-  },
-  data() {
-    return {
+  setup(props) {
+    const state = reactive({
       loading: false,
       video: { icon: "", watch: "", title: "" }
+    });
+
+    onMounted(async () => {
+      state.loading = true;
+      state.video = await getTrailer(props.title, props.year);
+      state.loading = false;
+    });
+
+    return {
+      ...toRefs(state)
     };
   }
 };
