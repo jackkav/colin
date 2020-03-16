@@ -10,14 +10,12 @@ export const getPBTagAndMagnetByTopic = async id => {
   if (!f.ok) {
     return;
   }
-
   const body = await f.text();
   const $ = cheerio.load(body);
 
   const s = [];
   let index = 0;
   $('a[title="Download this torrent using magnet"]').each((a, item) => {
-    //console.log(item)
     const magnet = item.attribs.href;
     const fullTag = $(item)
       .parent()
@@ -27,7 +25,6 @@ export const getPBTagAndMagnetByTopic = async id => {
       .parent()
       .find(".detName a");
     if (url1.length) url = url1[0].attribs.href;
-    // else console.log('hmm', item)
     const id = magnet.match(/(?![magnet:?xt=urn:btih:])(.*)(?=&dn)/)[0];
 
     const newItem = {
@@ -37,7 +34,6 @@ export const getPBTagAndMagnetByTopic = async id => {
       fullTag,
       index
     };
-    // console.log(newItem)
     index++;
     s.push(newItem);
   });
@@ -57,7 +53,6 @@ export const isExpired = key => {
   if (!expire || !value) return true;
   const expiryTime = new Date(expire);
   let today = new Date();
-  // console.log(key + " has Expired", today > expiryTime);
   return today > expiryTime;
 };
 export const getTrailer = async (name, year) => {
@@ -65,14 +60,14 @@ export const getTrailer = async (name, year) => {
   return getVideo(searchTerm);
 };
 const getVideo = async searchTerm => {
-  // console.log("search for this: ", searchTerm);
+  console.log("search for this: ", searchTerm);
   let cors = "https://cors-anywhere.herokuapp.com/";
   let f = await fetch(
-    `${cors}https://www.googleapis.com/youtube/v3/search?key=AIzaSyBjnMTlF9ou968qeDBc6LQpN860jJ0Juj0&q=${searchTerm}&part=snippet`
+    `${cors}https://www.googleapis.com/youtube/v3/search?key=` +
+      `AIzaSyBjnMTlF9ou968qeDBc6LQpN860jJ0Juj0&q=${searchTerm}&part=snippet`
   );
   let json = await f.json();
   const items = idx(json, _ => _.items);
-  // console.log(json);
   let first = {};
   if (items.length) first = items[0];
 
