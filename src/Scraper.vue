@@ -4,11 +4,11 @@ div
     .ba.ph3.pv3.bg-washed-green.black.bg-animate.hover-bg-dark-green.hover-white(@click="d.show = !d.show") {{d.movieTitle}} [{{d.uploadedAtFromNow}}]
     transition(name="fade")
       .ph3.pv3.bg-washed-green.black.bg-animate.hover-bg-dark-green.hover-white(v-if="d.show")
-        div(v-if="storage") Name: {{d.title}}
-        div(v-if="storage") Position: # {{d.index + 1}}
-        div(v-if="storage") Quality: {{d.quality}}
-        div(v-if="storage") Size: {{d.size}}
-        .f6.link.dim.br2.ph3.pv2.mb2.dib.white.bg-black(v-if="storage" :href="d.magnet") Download
+        div(v-if="lock") Name: {{d.title}}
+        div(v-if="lock") Position: # {{d.index + 1}}
+        div(v-if="lock") Quality: {{d.quality}}
+        div(v-if="lock") Size: {{d.size}}
+        .f6.link.dim.br2.ph3.pv2.mb2.dib.white.bg-black(v-if="lock" :href="d.magnet") Download
         trailer(:title="d.movieTitle" :year="d.year")
 </template>
 
@@ -26,13 +26,12 @@ const topics = {
 export default {
   name: "scraper",
   components: { Trailer },
-  props: ["storage"],
+  props: ["lock"],
   setup(props) {
     const state = reactive({
       items: []
     });
     onMounted(async () => {
-      console.log(props.storage);
       isExpired(topics.movies)
         ? fetchItems()
         : (state.items = JSON.parse(localStorage.getItem(topics.movies)));
@@ -53,8 +52,7 @@ export default {
       state.items = movies;
     };
     return {
-      ...toRefs(state),
-      storage: props.storage
+      ...toRefs(state)
     };
   }
 };

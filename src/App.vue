@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     .ba.ph3.pv3.bg-washed-green.black.bg-animate.hover-bg-dark-green.hover-white(@click="storage = !storage") Welcome {{lock}}
-    scraper(:storage="storage")
+    scraper(:lock="storage")
 </template>
 
 <script>
