@@ -17,6 +17,8 @@ import fromNow from "moment-from-now";
 import { getPBTagAndMagnetByTopic, setExpiry, isExpired } from "./scrape";
 import { pbParse } from "./parsers";
 import Trailer from "./Trailer.vue";
+import { reactive, onMounted, toRefs } from "@vue/composition-api";
+
 const topics = {
   movies: "aggro.pb.201",
   movieId: "201"
@@ -24,13 +26,17 @@ const topics = {
 export default {
   name: "scraper",
   components: { Trailer },
-  mounted() {
-    isExpired(topics.movies)
-      ? this.fetchItems()
-      : (this.items = JSON.parse(localStorage.getItem(topics.movies)));
-  },
-  methods: {
-    fetchItems: async function() {
+  setup() {
+    const state = reactive({
+      items: []
+    });
+
+    onMounted(async () => {
+      isExpired(topics.movies)
+        ? fetchItems()
+        : (state.items = JSON.parse(localStorage.getItem(topics.movies)));
+    });
+    let fetchItems = async function() {
       let t = await getPBTagAndMagnetByTopic(topics.movieId);
       let movies = t
         .map(x => ({
@@ -43,12 +49,10 @@ export default {
         (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
       );
       setExpiry(topics.movies, movies, 2);
-      this.items = movies;
-    }
-  },
-  data() {
+      state.items = movies;
+    };
     return {
-      items: []
+      ...toRefs(state)
     };
   }
 };

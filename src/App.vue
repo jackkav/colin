@@ -1,5 +1,5 @@
-<template>
-  <scraper source="201"/>
+<template lang="pug">
+  scraper(source="201")
 </template>
 
 <script>
